@@ -1,0 +1,42 @@
+  .search-header {
+      display: flex;
+  }
+
+  .search-text {
+      margin-right: 10px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .search-form {
+      padding-left: 50px;
+      padding-top: 50px;
+      width: 400px;
+  }
+
+  .search-box {
+      height: 60px;
+  }
+
+  #search-box[placeholder] {
+      line-height: 25px;
+      font-size: 25px;
+  }
+
+  .search-song-button {
+      margin-top: 15px;
+  }
+
+  .search-artist-button {
+      margin-top: 15px;
+      margin-left: 10px;
+      color: white !important;
+      background-color: #3b3b3b !important;
+  }
+
+
+  #item-list {
+      min-height: 260px;
+  }
