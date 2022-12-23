@@ -10,7 +10,6 @@ class Api::V1::UsersController < ApiController
                 client_id: ENV['CLIENT_ID'],
                 client_secret: ENV["CLIENT_SECRET"]
             }
-
             auth_response = RestClient.post('https://accounts.spotify.com/api/token', body)
             auth_params = JSON.parse(auth_response.body)
             
@@ -32,15 +31,14 @@ class Api::V1::UsersController < ApiController
             hmac_secret = 'my$ecretK3y'
             payload = {user_id: @user.id}
             token = JWT.encode payload, hmac_secret, 'HS256'
-
-            # decoded_token = JWT.decode token, hmac_secret, true, {algorithm: 'HS256'}
-            cookies[:favorite_colors] = JSON.generate(['blue', 'red'])
             
             cookies.permanent[:username] = @user.username
             cookies.permanent[:userId] = @user.userId
             cookies.permanent[:image] = @user.image
             cookies.permanent[:spotify_url] = @user.spotify_url
             cookies.permanent[:uri] = @user.uri
+            cookies.permanent[:jwt_token] = token
+            cookies.permanent[:access_token] = auth_params["access_token"]
             
             redirect_to "http://localhost:3001/main"
         end
