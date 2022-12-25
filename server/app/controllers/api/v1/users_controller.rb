@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApiController
             cookies.permanent[:jwt_token] = token
             cookies.permanent[:access_token] = auth_params["access_token"]
             
-            redirect_to "http://localhost:3001/main"
+            redirect_to "http://localhost:3001/search"
         end
     end
 end
