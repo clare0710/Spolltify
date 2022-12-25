@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookiesProvider } from 'react-cookie';
 import Home from "./pages/Home";
-import Main from "./pages/Main";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 
@@ -12,7 +11,6 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/main" element={<Main />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/search" element={<Search />}></Route>
       </Routes>

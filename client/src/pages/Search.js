@@ -1,20 +1,20 @@
 import React from 'react';
-import Appbar from "../components/Appbar.js";
+import Appbar from "../components/Appbar";
 import SearchList from "../components/SearchList.js"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "../components/Appbar.js";
+import "../components/SearchList.css";
 
-class Search extends React.Component {
-    render() {
-        return (<div>
-            <header>
-                <div>
-                    <Appbar />
-                </div>
-            </header>
-            <div>
-                <SearchList />
-            </div>
-        </div >);
-    };
+function Search() {
+    return (<div>
+        <header>
+            <Appbar />
+        </header>
+        <div>
+            <SearchList />
+        </div>
+    </div>
+    );
 }
 
 export default Search;
