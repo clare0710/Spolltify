@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, DropdownButton, Dropdown } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button';
-import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import Cookies from 'js-cookie'
 import "./Appbar.css";
 
 function Appbar() {
-    const [isOpen, setOpen] = useState(true);
-
     return (
         <Navbar className="color-nav" expand="md">
             <Container>
@@ -17,9 +13,6 @@ function Appbar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                    </Nav>
-                    <Nav pullright='true'>
-                        <Button className=".btn-primary" onClick={() => setOpen((open) => !open)}>{isOpen ? <FaVolumeUp /> : <FaVolumeMute />}</Button>
                     </Nav>
                     <DropdownButton
 
