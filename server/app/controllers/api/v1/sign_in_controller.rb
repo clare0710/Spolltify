@@ -4,7 +4,7 @@ class Api::V1::SignInController < ApiController
             client_id: ENV['CLIENT_ID'],
             response_type: "code",
             redirect_uri: ENV['REDIRECT_URI'],
-            scope: "user-library-read user-library-modify user-top-read user-modify-playback-state playlist-modify-public",
+            scope: "user-library-read user-library-modify user-top-read user-modify-playback-state playlist-modify-public streaming user-read-email user-read-private user-read-playback-state",
             show_dialog: true
         }
 
