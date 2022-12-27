@@ -9,7 +9,7 @@ function Appbar() {
     return (
         <Navbar className="color-nav" expand="md">
             <Container>
-                <Navbar.Brand href="/main" className="text-bold">S•poll•tify</Navbar.Brand>
+                <Navbar.Brand href="/search" className="text-bold">S•poll•tify</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
