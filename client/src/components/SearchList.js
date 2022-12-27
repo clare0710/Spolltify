@@ -161,7 +161,7 @@ function SearchList() {
                 <Form.Group>
                     <Form.Control className="search-box" placeholder="Search by song or artist..." onChange={e => setSearchKey(e.target.value)} />
                 </Form.Group>
-                <Button type="submit" className="search-song-button" onClick={searchTracks}>Songs</Button>
+                <Button type="submit" className="search-song-button" onClick={searchTracks}>Search</Button>
                 {/* <Button type="submit" className="search-artist-button" onClick={searchArtists}>Artists</Button> */}
 
                 <ListGroup className="search-list">
