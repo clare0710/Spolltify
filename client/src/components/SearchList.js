@@ -10,6 +10,13 @@ import { FaPlusSquare } from 'react-icons/fa';
 import DropDownBtn from './DropDownBtn';
 import SpotifyPlayer from "react-spotify-web-playback";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./DropDownBtn.css";
+import VerticalMenu from "../img/vertical_menu.svg";
+import { DropdownButton, Dropdown } from 'react-bootstrap';
+
+import Popup from './Popup'
+import "./Popup.css"
 
 function SearchList() {
     const [searchKey, setSearchKey] = useState("")
@@ -18,6 +25,10 @@ function SearchList() {
     const [toptracks, setTopTracks] = useState([])
     const [playingTrack, setPlayingTrack] = useState()
     const [play, setPlay] = useState(false)
+
+    const [buttonPopup,setButtonPopup]=useState(false);
+    const [buttonPopup1,setButtonPopup1]=useState(false);
+    const [buttonPopup2,setButtonPopup2]=useState(false);
 
     useEffect(() => setPlay(true), [playingTrack])
 
@@ -52,7 +63,17 @@ function SearchList() {
                     <div><audio src={track.preview_url} className="audio" controls>
                     </audio></div>
                     <div><Button className="listen-button" onClick={() => setPlayingTrack(track.uri)} >Listen</Button></div>
-                    <DropDownBtn />
+                    <DropdownButton variant="outline-light" className="vertical-menu-button"
+
+                        title={
+                            <img className='vertical-menu-icon' alt='vertical_menu_icon' src={VerticalMenu} />
+                        }
+                        
+                    >
+                        <Dropdown.Item onClick={()=>setButtonPopup(true)}>View album</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>setButtonPopup1(true)}>View artist</Dropdown.Item>
+                        <Dropdown.Item onClick={()=>setButtonPopup2(true)}>Recommended song</Dropdown.Item>
+                    </DropdownButton>
                 </ListGroup.Item>
             </ListGroup>
         ))
@@ -111,7 +132,7 @@ function SearchList() {
 
     const TopTracks = async (e) => {
         e.preventDefault()
-        // const data = artists.map(async artist => {
+        const data = artists.map(async artist => {
         const d = await axios.get(`https://api.spotify.com/v1/artists/${artists[0].id}/top-tracks`, {
             headers: {
                 Authorization: `Bearer ${Cookies.get('access_token')}`
@@ -123,7 +144,7 @@ function SearchList() {
 
         setTopTracks(d.data.tracks) //set first aritst's top tracks
         console.log(d.data.tracks)
-        // })
+        })
     }
 
     const renderTopTracks = () => {  //can only render first aritst's top tracks
@@ -164,20 +185,29 @@ function SearchList() {
                 <Button type="submit" className="search-song-button" onClick={searchTracks}>Songs</Button>
                 {/* <Button type="submit" className="search-artist-button" onClick={searchArtists}>Artists</Button> */}
 
-                <ListGroup className="search-list">
+               <ListGroup className="search-list">
                     {renderTracks()}
                 </ListGroup>
-                {/* <ListGroup className="search-list2">
+                <ListGroup className="search-list2">
                     {renderArtists()}
                 </ListGroup>
-                <ListGroup className="search-list3">
+                 <ListGroup className="search-list3">
                     {renderTopTracks()}
-                </ListGroup> */}
+                </ListGroup> 
             </Form>
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                  
+            </Popup>
+            <Popup trigger={buttonPopup1} setTrigger={setButtonPopup1}>
+                                  
+            </Popup>
+            <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
+                                  
+            </Popup>
 
         </div>
 
-    );
+    );  
 }
 
 export default SearchList;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import SpotifyImg from "../img/spotify_Icon.png";
+import SpotifyImg from "../img/Spotify_Icon.png";
 import "./Home.css";
 
 const Home = () => {

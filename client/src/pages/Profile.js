@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import Cookies from 'js-cookie';
+import Appbar from "../components/Appbar";
+import "../components/Appbar.js";
+import axios from 'axios';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const Profile = () => {
 
   return (
     <div>
-      <div>
+      <header><Appbar /></header>
+      
+      <div>       
         <Image src={Cookies.get('image')} roundedCircle width={130} height={130}/>
         <div
           classNeam="username"
           style={{
             position: "absolute",
-            top: "10px",
+            top: "90px",
             right: "0",
             width: "1070px",
             height: "80px",

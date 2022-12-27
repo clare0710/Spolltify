@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DropDownBtn.css";
 import VerticalMenu from "../img/vertical_menu.svg";
 import { DropdownButton, Dropdown } from 'react-bootstrap';
+import Popup from './Popup';
 
-export class DropDownBtn extends Component {
+export class DropDownBtn extends Component {   
     render() {
         return (
             <DropdownButton variant="outline-light" className="vertical-menu-button"
@@ -17,6 +18,7 @@ export class DropDownBtn extends Component {
                 <Dropdown.Item>View artist</Dropdown.Item>
                 <Dropdown.Item>Recommended song</Dropdown.Item>
             </DropdownButton>
+
         );
     }
 }
